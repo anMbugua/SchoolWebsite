@@ -5,7 +5,7 @@ body {
     padding: 0;
     color: #2e2e2e; /* Deep grey for text */
     background: rgba(255, 255, 255, 0.9);
-    background-image: url('your-selected-image.jpg'); /* Replace with the path to your selected image */
+    background-image: url('https://wp.inews.co.uk/456847boarders-2'); /* Replace with the path to your selected image */
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
