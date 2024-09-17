@@ -1,0 +1,223 @@
+l<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our School - Core Values & Gallery</title>
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        h1, h2, h3, h4 {
+            margin: 0;
+            padding-bottom: 10px;
+        }
+
+        header {
+            background-color: #00796B;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #004D40;
+        }
+
+        nav a {
+            padding: 14px 25px;
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #26A69A;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .content {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .values-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .values-section ul li {
+            padding: 10px 0;
+        }
+
+        /* Gallery Styles */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding-top: 50px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 80%;
+            margin: auto;
+            display: block;
+            border-radius: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .close:hover, .close:focus {
+            color: #bbb;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #004D40;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Welcome to Our School</h1>
+        <p>We are committed to shaping bright futures!</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#values">Core Values</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div class="container">
+
+        <!-- Core Values Section -->
+        <section id="values" class="content values-section">
+            <h2>Our Core Values</h2>
+            <p>We believe in fostering an environment of integrity, respect, and resilience. These values shape our students into thoughtful, hardworking, and compassionate individuals.</p>
+            <ul>
+                <li><strong>Integrity:</strong> Acting with honesty and transparency in all we do.</li>
+                <li><strong>Respect:</strong> Valuing each other’s perspectives and diversity.</li>
+                <li><strong>Excellence:</strong> Striving for personal and academic achievement.</li>
+                <li><strong>Community:</strong> Building a strong and supportive environment.</li>
+                <li><strong>Resilience:</strong> Overcoming challenges with determination.</li>
+            </ul>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="content">
+            <h2>School Gallery</h2>
+            <p>Explore our gallery and witness the wonderful moments captured at our school!</p>
+
+            <div class="gallery">
+                <img src="https://via.placeholder.com/300" alt="Event 1" onclick="openModal(this)">
+                <img src="https://via.placeholder.com/300" alt="Event 2" onclick="openModal(this)">
+                <img src="https://via.placeholder.com/300" alt="Event 3" onclick="openModal(this)">
+                <img src="https://via.placeholder.com/300" alt="Event 4" onclick="openModal(this)">
+                <img src="https://via.placeholder.com/300" alt="Event 5" onclick="openModal(this)">
+            </div>
+
+            <!-- Modal for Enlarged Image -->
+            <div id="imageModal" class="modal">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img class="modal-content" id="modalImage">
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="content">
+            <h2>Contact Us</h2>
+            <p>If you have any questions, feel free to reach out!</p>
+            <p><strong>Email:</strong> info@ourschool.com</p>
+            <p><strong>Phone:</strong> (123) 456-7890</p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Our School. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Modal -->
+    <script>
+        function openModal(imgElement) {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("modalImage");
+            modal.style.display = "flex";
+            modalImg.src = imgElement.src;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("imageModal");
+            modal.style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>
